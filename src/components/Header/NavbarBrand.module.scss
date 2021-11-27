@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/functions.scss";
+@import "~bootstrap/scss/mixins.scss";
+@import "../../style/variables.scss";
+
+.image {
+    @include media-breakpoint-down(md) {
+        width: 45px;
+    }
+}

@@ -1,0 +1,14 @@
+// Bootstrap needs
+@import "~bootstrap/scss/functions.scss";
+@import "~bootstrap/scss/mixins.scss";
+@import "../../style/variables.scss";
+
+.container {
+    background-color: $navbar-bottom-bg;
+}
+
+.nav-link {
+
+    &:hover {
+    }
+}
