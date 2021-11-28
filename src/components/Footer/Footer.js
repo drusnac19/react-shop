@@ -46,7 +46,7 @@ const Footer = () => {
                         </ul>
                     </Col>
                 </Row>
-                <Row className='mt-4'>
+                <Row className='mt-3'>
                     <div className={classes['footer-logo']}>
                         <div className={classes['footer-logo-line']}></div>
                         <img src={imgSrcLogoWhite} alt='' />

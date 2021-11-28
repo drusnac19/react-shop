@@ -737,7 +737,7 @@ $input-transition:                      border-color .15s ease-in-out, box-shado
 // scss-docs-end form-input-variables
 
 // scss-docs-start form-check-variables
-$form-check-input-width:                  1em !default;
+$form-check-input-width:                  1.1em !default;
 $form-check-min-height:                   $font-size-base * $line-height-base !default;
 $form-check-padding-start:                $form-check-input-width + .5em !default;
 $form-check-margin-bottom:                .125rem !default;
@@ -748,7 +748,7 @@ $form-check-transition:                   null !default;
 $form-check-input-active-filter:          brightness(90%) !default;
 
 $form-check-input-bg:                     $input-bg !default;
-$form-check-input-border:                 1px solid rgba($black, .25) !default;
+$form-check-input-border:                 2px solid rgba(black,.6) !default;
 $form-check-input-border-radius:          .25em !default;
 $form-check-radio-border-radius:          50% !default;
 $form-check-input-focus-border:           $input-focus-border-color !default;

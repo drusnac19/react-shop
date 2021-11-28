@@ -1,7 +1,6 @@
-import classes from "./NavigationBottom.module.scss";
+import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
-
- 
+import classes from "./NavigationBottom.module.scss";
 
 const NavigationBottom = () => {
     return (
@@ -12,18 +11,25 @@ const NavigationBottom = () => {
         >
             <Container>
                 <Nav className='mx-auto'>
-                    <Nav.Link className={classes["nav-link"]} href='#'>
+                    <Link className='nav-link' to='/'>
                         Acasă
-                    </Nav.Link>
-                    <Nav.Link className={classes["nav-link"]} href='#'>
+                    </Link>
+
+                    <Link
+                        className='nav-link'
+                        to='/products/ochelari-de-vedere'
+                    >
                         Ochelari de vedere
-                    </Nav.Link>
-                    <Nav.Link className={classes["nav-link"]} href='#'>
+                    </Link>
+                    <Link className='nav-link' to='/products/ochelari-de-soare'>
                         Ochelari de soare
-                    </Nav.Link>
-                    <Nav.Link className={classes["nav-link"]} href='#'>
+                    </Link>
+                    <Link
+                        className='nav-link'
+                        to='/products/ochelari-calculator'
+                    >
                         Ochelari calculator
-                    </Nav.Link>
+                    </Link>
                 </Nav>
             </Container>
         </Navbar>

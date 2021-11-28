@@ -1,6 +1,8 @@
 //bootstrap
 import { Nav, NavDropdown } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 //font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -9,22 +11,22 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 const UserNavigation = () => {
     return (
         <Nav className='flex-row'>
-            <Nav.Link href='#'>
+            <Link className='nav-link' to='/user'>
                 <FontAwesomeIcon className='text-danger mx-2' icon={faUser} />
                 <span className='d-none d-md-inline'>Cont client </span>
-            </Nav.Link>
-            <Nav.Link href='#link'>
+            </Link>
+            <Link className='nav-link' to='/cart'>
                 <FontAwesomeIcon
                     className='text-danger mx-2'
                     icon={faShoppingCart}
                 />
                 <span className='d-none d-md-inline'>Coș </span>
-            </Nav.Link>
+            </Link>
 
-            <Nav.Link className='d-none d-md-inline' href='#link'>
+            <Link className='nav-link d-none d-md-inline' to='/user/favorite'>
                 <FontAwesomeIcon className='text-danger mx-2' icon={faHeart} />
                 <span>Favorite </span>
-            </Nav.Link>
+            </Link>
 
             <NavDropdown
                 className='d-none d-md-inline-block'
@@ -34,11 +36,6 @@ const UserNavigation = () => {
                     Înregistrare
                 </NavDropdown.Item>
                 <NavDropdown.Item href='#action/3.2'>Logare</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown className='d-none d-md-inline-block' title='Limba'>
-                <NavDropdown.Item href='#action/3.1'>Engleză</NavDropdown.Item>
-                <NavDropdown.Item href='#action/3.2'>Română</NavDropdown.Item>
             </NavDropdown>
         </Nav>
     );
