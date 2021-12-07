@@ -1,7 +1,3 @@
-import { Container, Row, Col } from "react-bootstrap";
-import classes from "./ProductBanner.module.scss";
-
-//dev
 import fakerStatic from "faker";
 
 const ProductBanner = (props) => {
@@ -9,18 +5,16 @@ const ProductBanner = (props) => {
     const bannerTitle = fakerStatic.commerce.productName();
 
     return (
-        <Container>
-            <div
-                className={classes.backdrop}
-                style={{ backgroundImage: `url(${bannerUrl})` }}
-            >
-                <div>
-                    <div className={classes["title-container"]}>
-                        <h2 className={classes.title}>{bannerTitle}</h2>
-                    </div>
+        <div
+            className='product-banner'
+            style={{ backgroundImage: `url(${bannerUrl})` }}
+        >
+            <div>
+                <div className='title-wrap'>
+                    <h2 className='title'>{bannerTitle}</h2>
                 </div>
             </div>
-        </Container>
+        </div>
     );
 };
 

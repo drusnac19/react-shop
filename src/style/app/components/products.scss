@@ -1,0 +1,139 @@
+.product-container {
+    background: #e5e5e5;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    @include media-breakpoint-down(sm) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+}
+
+.product {
+    box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.15);
+
+    .product-price {
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 20px;
+        color: $red;
+    }
+
+    .product-price-original {
+        text-decoration: line-through;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .product-ribbon-discount {
+        position: absolute;
+        left: -1rem;
+        top: 1rem;
+        background: $red-500;
+        padding: 0 0.5rem;
+        color: #fff;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 0.75rem;
+        display: inline-block;
+        z-index: 2;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 100%;
+            width: 0px;
+            height: 0px;
+            border: 0.75rem solid transparent;
+            border-left-color: $red-500;
+       
+        }
+    }
+
+    .product-ribbon-most-sold {
+        position: absolute;
+       left: 0;
+    top: 0;
+        background: $yellow-600;
+        padding: 0 0.5rem;
+        color: #fff;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 0.75rem;
+        display: inline-block;
+        z-index: 2;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 100%;
+            width: 0px;
+            height: 0px;
+            border: 0.75rem solid transparent;
+            border-left-color: $yellow-600;
+            border-top-color: $yellow-600;
+        }
+    }
+
+    .product-title {
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 0;
+
+        a {
+            text-decoration: none;
+            color: #434343;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .product-stock {
+        font-family: "Open Sans";
+        font-size: 0.85rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 0.85rem;
+        color: #434343;
+    }
+
+    .product-brand {
+        font-family: "Open Sans";
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #bdbdbd;
+        margin-right: 5px;
+    }
+
+    .product-orderby {
+        font-family: "Open Sans";
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #bdbdbd;
+        margin-right: 5px;
+    }
+}
+
+.product-rating {
+    .star {
+        color: $yellow-400;
+    }
+    .star-active {
+    }
+}

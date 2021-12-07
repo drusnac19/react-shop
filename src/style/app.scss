@@ -5,8 +5,9 @@
 // Variables
 @import "./variables.scss";
 
-//fonts
+//Fonts
 @import "./app/fonts.scss";
 
-//Vendor
-@import '~bootstrap/scss/bootstrap.scss';   
+//Components
+@import "./app/components/products.scss";
+@import "./app/components/banner-products.scss";

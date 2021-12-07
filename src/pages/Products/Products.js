@@ -1,19 +1,18 @@
 import { useLocation, useParams, useHistory } from "react-router";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import MainLayout from "../../layouts/MainLayout";
-import ProductGridItem from "../../components/Product/ProductGridItem";
-import ProductBanner from "../../components/Product/ProductBanner";
 import classes from "./Products.module.scss";
+import ProductBanner from "../../components/Product/ProductBanner";
+import ProductGridItem from "../../components/Product/ProductGridItem";
 
 //dev
 import fakerStatic from "faker";
 import { useState, useEffect } from "react";
 
 const Products = () => {
-    const urlParams = useParams();
-    const [taxonomies, setTaxnomy] = useState([]);
     const [categoryId, setCategoryId] = useState(1);
-
+    const [taxonomies, setTaxnomy] = useState([]);
+    const [products, setProducts] = useState([]);
     const [filter, setFilter] = useState(() => []);
 
     const setFilterHandler = (e) => {
@@ -28,34 +27,24 @@ const Products = () => {
         });
     };
 
-    console.log("all", filter);
-
-    const products = Array(5)
-        .fill(null)
-        .map(() => {
-            return {
-                id: fakerStatic.datatype.uuid(),
-                name: fakerStatic.commerce.productName(),
-                brand: fakerStatic.commerce.product(),
-                price: fakerStatic.commerce.price(),
-                description: fakerStatic.commerce.productDescription(),
-                ratingScore: fakerStatic.datatype.float(1, 5),
-                inStock: fakerStatic.datatype.boolean(),
-                stock: fakerStatic.datatype.number(1, 100),
-                thumbnail: fakerStatic.image.imageUrl(),
-            };
-        });
+    
 
     useEffect(() => {
-        fetch(`http://eyesaid.local/api/taxonomy?category_id=${categoryId}`)
+        fetch(`https://api.staging.eyes-aid.com/api/taxonomy?category_id=${categoryId}`)
             .then((response) => response.json())
             .then((data) => setTaxnomy(data.data));
     }, []);
 
+    useEffect(() => {
+        fetch(`https://api.staging.eyes-aid.com/api/product-filter`)
+            .then((response) => response.json())
+            .then((data) => setProducts(data.data));
+    }, []);
+
     return (
-        <MainLayout>
-            <ProductBanner />
+        <MainLayout className='product-container'>
             <Container>
+                <ProductBanner />
                 <Row>
                     <Col lg='3'>
                         <div className={classes.filters}>
@@ -93,36 +82,13 @@ const Products = () => {
                         </div>
                     </Col>
                     <Col lg='9'>
-                        <div className={classes.products}>
-                            {products &&
-                                products.map((product) => (
-                                    <div
-                                        className={classes["product-wrap"]}
-                                        key={product.id}
-                                    >
-                                        <Card className={classes.product}>
-                                            <Card.Img
-                                                variant='top'
-                                                src={product.thumbnail}
-                                            />
-                                            <Card.Body>
-                                                <Card.Title>
-                                                    {product.name}
-                                                </Card.Title>
-                                                <Card.Subtitle>
-                                                    {product.brand}
-                                                </Card.Subtitle>
-                                                <span
-                                                    className={
-                                                        classes["product-price"]
-                                                    }
-                                                >
-                                                    {product.price}
-                                                </span>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                ))}
+                        <div className='product-grid'>
+                            {products.map((product) => (
+                                <ProductGridItem
+                                    key={product.id}
+                                    product={product}
+                                />
+                            ))}
                         </div>
                     </Col>
                 </Row>
