@@ -12,6 +12,10 @@
     flex-direction: column;
     justify-content: center;
 
+    @include media-breakpoint-down(lg) {
+        justify-content: end;
+    }
+
     .title-wrap {
         display: inline-block;
         background: #d61b2b;
@@ -19,12 +23,16 @@
         color: #fff;
         padding: 1rem 2rem;
 
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 2rem;
+        }
+
         .title {
             font-family: "Open Sans";
             font-size: 2rem;
             margin: 0;
 
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(lg) {
                 font-size: 1rem;
             }
         }

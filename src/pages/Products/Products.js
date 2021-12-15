@@ -1,45 +1,30 @@
-import { useLocation, useParams, useHistory } from "react-router";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategoryBySlug } from "../../store/product-category/slice";
+
 import MainLayout from "../../layouts/MainLayout";
-import classes from "./Products.module.scss";
 import ProductBanner from "../../components/Product/ProductBanner";
 import ProductGridItem from "../../components/Product/ProductGridItem";
+import FilterList from "../../components/Product/Filters/FilterList";
 
-//dev
-import fakerStatic from "faker";
-import { useState, useEffect } from "react";
+import { getProducts } from "../../store/product/slice";
 
 const Products = () => {
-    const [categoryId, setCategoryId] = useState(1);
-    const [taxonomies, setTaxnomy] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [filter, setFilter] = useState(() => []);
+    const products = useSelector((state) => state.product.products);
+    const filters = useSelector((state) => state.productFilter);
 
-    const setFilterHandler = (e) => {
-        e.preventDefault();
+    const urlParams = useParams();
 
-        setFilter((state) => {
-            const newState = [...state];
+    const dispatch = useDispatch();
 
-            newState.push(e.target.value);
+    useEffect(
+        () => dispatch(getCategoryBySlug(urlParams.categorySlug)),
+        [urlParams.categorySlug]
+    );
 
-            return newState;
-        });
-    };
-
-    
-
-    useEffect(() => {
-        fetch(`https://api.staging.eyes-aid.com/api/taxonomy?category_id=${categoryId}`)
-            .then((response) => response.json())
-            .then((data) => setTaxnomy(data.data));
-    }, []);
-
-    useEffect(() => {
-        fetch(`https://api.staging.eyes-aid.com/api/product-filter`)
-            .then((response) => response.json())
-            .then((data) => setProducts(data.data));
-    }, []);
+    useEffect(() => dispatch(getProducts(filters)), [filters]);
 
     return (
         <MainLayout className='product-container'>
@@ -47,39 +32,7 @@ const Products = () => {
                 <ProductBanner />
                 <Row>
                     <Col lg='3'>
-                        <div className={classes.filters}>
-                            {taxonomies &&
-                                taxonomies.map((el) => (
-                                    <div className={classes.filter} key={el.id}>
-                                        <h3 className={classes.title}>
-                                            {el.name}
-                                        </h3>
-                                        <div
-                                            className={classes["filter-value"]}
-                                        >
-                                            {el.terms &&
-                                                el.terms.map((term) => (
-                                                    <Form.Check
-                                                        key={
-                                                            term.relationship_slug
-                                                        }
-                                                        type='checkbox'
-                                                        label={term.term_name}
-                                                        value={
-                                                            term.relationship_slug
-                                                        }
-                                                        checked={filter.includes(
-                                                            term.relationship_slug
-                                                        )}
-                                                        onChange={
-                                                            setFilterHandler
-                                                        }
-                                                    />
-                                                ))}
-                                        </div>
-                                    </div>
-                                ))}
-                        </div>
+                        <FilterList />
                     </Col>
                     <Col lg='9'>
                         <div className='product-grid'>

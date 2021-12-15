@@ -6,7 +6,7 @@ import UserNavigation from "./UserNavigation";
 
 const NavigationTop = () => {
     return (
-        <Navbar bg='white' variant='dark' expand='md'>
+        <Navbar bg='white' variant='dark' expand='md' >
             <Container className='px-0'>
                 <Navbar.Toggle aria-controls='MainNavigation' />
                 <NavbarBrand />

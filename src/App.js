@@ -23,7 +23,7 @@ function App() {
                 <Route exact path='/cart'>
                     <Cart />
                 </Route>
-                <Route exact path='/products/:productSlug' exact>
+                <Route exact path='/products/:categorySlug' exact>
                     <Products />
                 </Route>
                 <Route exact path='/login'>

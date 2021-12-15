@@ -1,0 +1,45 @@
+//
+//top bar
+//
+
+.topbar {
+    background: #e3f4fa;
+    text-align: center;
+    line-height: 36px;
+
+    @include media-breakpoint-down(md) {
+        line-height: 18px;
+    }
+
+    .topbar-title {
+        text-align: center;
+        font-family: "Quicksand";
+        color: #000000;
+
+        @include media-breakpoint-down(md) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+}
+
+//
+//navbar brand
+//
+
+.navbar-brand-image {
+    @include media-breakpoint-down(md) {
+        width: 45px;
+    }
+}
+
+
+//
+//main navbar 
+//
+
+.main-navbar {
+    background-color: $navbar-bottom-bg;
+}
+
+

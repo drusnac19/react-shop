@@ -1,20 +1,15 @@
-// Bootstrap needs
-@import "~bootstrap/scss/functions.scss";
-@import "~bootstrap/scss/mixins.scss";
-@import "../../style/variables.scss";
-
 .footer {
     background-color: $footer-bottom-bg;
     padding-top: 3.75rem;
     padding-bottom: 2rem;
-}
 
-.title {
-    font-family: "Open Sans";
-    font-size: 1rem;
-    font-weight: 700;
-    color: #8a8a8a;
-    margin-bottom: 1rem;
+    .footer-title {
+        font-family: "Open Sans";
+        font-size: 1rem;
+        font-weight: 700;
+        color: #8a8a8a;
+        margin-bottom: 1rem;
+    }
 }
 
 .footer-nav {

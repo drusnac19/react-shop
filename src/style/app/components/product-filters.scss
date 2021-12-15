@@ -1,0 +1,38 @@
+.filter-nav {
+    margin-bottom: 1rem;
+}
+
+.filters {
+    margin-bottom: 2rem;
+}
+
+.filter {
+    .section-wrap-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+            border-bottom: solid 2px #ddd;
+
+            &:nth-last-child() {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .section-title {
+        font-family: "Open Sans";
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    .filter-value {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}

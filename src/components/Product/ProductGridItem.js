@@ -4,56 +4,59 @@ import { Link } from "react-router-dom";
 import ProductRating from "./ProductRating";
 
 const ProductGridItem = (props) => {
-    const product = props.product;
+    const {
+        id,
+        thumbnail,
+        name,
+        slug,
+        stock,
+        brand,
+        rating_score,
+        price,
+        price_discounted,
+        discount,
+    } = props.product;
 
     return (
-        <Card className='product' key={product.id}>
-            <Card.Img variant='top' src={product.thumbnail} />
+        <Card className='product' key={id}>
+            <Card.Img variant='top' src={thumbnail} />
             <Card.Body>
                 <Card.Title className='product-title'>
-                    <Link to={`/product/${product.slug}`}>{product.name}</Link>
+                    <Link to={`/product/${slug}`}>{name}</Link>
                 </Card.Title>
                 <div className='mb-3'>
-                    <span className='product-stock'>
-                        ({product.stock} in stoc)
-                    </span>
+                    <span className='product-stock'>({stock} in stoc)</span>
                 </div>
                 <div>
                     <span className='product-orderby'>Livrat de:</span>
-                    <span>{product.brand}</span>
+                    <span>{brand}</span>
                 </div>
                 <div>
-                    <ProductRating score={product.rating_score} />
+                    <ProductRating score={rating_score} />
                 </div>
                 <div>
-                    <span
-                        className={
-                            product.stock ? "text-success" : "text-danger"
-                        }
-                    >
+                    <span className={stock ? "text-success" : "text-danger"}>
                         •
                     </span>
                     <span className='text-muted'>
-                        {product.stock ? "In stock" : "Fara stock"}
+                        {stock ? "In stock" : "Fara stock"}
                     </span>
                 </div>
                 <div className='text-end'>
-                    {product.discount && (
-                        <span className='product-price-original'>
-                            {product.price}
-                        </span>
+                    {discount && (
+                        <span className='product-price-original'>{price}</span>
                     )}
 
                     <span className='product-price'>
-                        {product.price_discounted} LEI
+                        {price_discounted} LEI
                     </span>
                 </div>
-                {product.discount && (
+                {discount && (
                     <span className='product-ribbon-discount'>
-                        -{product.discount}%
+                        -{discount}%
                     </span>
                 )}
-                {Math.random(1,5) && (
+                {Math.random(1, 5) && (
                     <span className='product-ribbon-most-sold d-none'>
                         cel mai vandut
                     </span>

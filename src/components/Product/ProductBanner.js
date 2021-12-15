@@ -1,8 +1,12 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import fakerStatic from "faker";
+import { selectCurrentCategory } from "../../store/product-category/slice";
 
 const ProductBanner = (props) => {
-    const bannerUrl = fakerStatic.image.sports(900, 300);
-    const bannerTitle = fakerStatic.commerce.productName();
+    let bannerUrl = fakerStatic.image.sports(900, 300);
+
+    const category = useSelector(selectCurrentCategory);
 
     return (
         <div
@@ -11,7 +15,7 @@ const ProductBanner = (props) => {
         >
             <div>
                 <div className='title-wrap'>
-                    <h2 className='title'>{bannerTitle}</h2>
+                    <h2 className='title'>{category.name}</h2>
                 </div>
             </div>
         </div>

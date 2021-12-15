@@ -9,5 +9,11 @@
 @import "./app/fonts.scss";
 
 //Components
+@import "./app/components/navbar.scss";
+@import "./app/components/footer.scss";
 @import "./app/components/products.scss";
+@import "./app/components/product-filters.scss";
 @import "./app/components/banner-products.scss";
+
+//Components
+@import "./app/misc.scss";
