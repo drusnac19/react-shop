@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import imgSrcLogoWhite from "../../assets/img/logo-white.png";
 
@@ -11,13 +12,19 @@ const Footer = () => {
                         <h2 className='footer-title'>CLIENT / OPTICĂ</h2>
                         <ul className='footer-nav'>
                             <li>
-                                <a href='#'>Vreau să vând pe EyesAid</a>
+                                <Link to={"/page/vreau-sa-vand-pe-eyesaid"}>
+                                    Vreu să vând pe EyesAid
+                                </Link>
                             </li>
                             <li>
-                                <a href='#'>Optici medicale</a>
+                                <Link to={"/page/optici-medicale"}>
+                                    Optici medicale
+                                </Link>
                             </li>
                             <li>
-                                <a href='#'>Livrare & Retur</a>
+                                <Link to={"/page/livrare-retur"}>
+                                    Livrare & Retur
+                                </Link>
                             </li>
                         </ul>
                     </Col>
@@ -25,10 +32,10 @@ const Footer = () => {
                         <h2 className='footer-title'>CLIENT / OPTICĂ</h2>
                         <ul className='footer-nav'>
                             <li>
-                                <a href='#'>Contact</a>
+                                <Link to={"/page/contact"}>Contact</Link>
                             </li>
                             <li>
-                                <a href='#'>Despre noi</a>
+                                <Link to={"/page/despre-noi"}>Despre noi</Link>
                             </li>
                         </ul>
                     </Col>
@@ -36,10 +43,16 @@ const Footer = () => {
                         <h2 className='footer-title'>INFO</h2>
                         <ul className='footer-nav'>
                             <li>
-                                <a href='#'>Termeni și condiții</a>
+                                <Link to={"/page/termeni-si-conditii"}>
+                                    Termeni și condiții
+                                </Link>
                             </li>
                             <li>
-                                <a href='#'>Politică de confidențialitate</a>
+                                <Link
+                                    to={"/page/politica-de-confidentialitate"}
+                                >
+                                    Politică de confidențialitate
+                                </Link>
                             </li>
                         </ul>
                     </Col>
@@ -47,7 +60,7 @@ const Footer = () => {
                 <Row className='mt-3'>
                     <div className='footer-logo'>
                         <div className='footer-logo-line'></div>
-                        <img src={imgSrcLogoWhite} alt='' />
+                        <img src={imgSrcLogoWhite} alt='Website logo' />
                         <div className='footer-logo-line'></div>
                     </div>
                 </Row>

@@ -17,11 +17,17 @@ const productSlice = createSlice({
 export const { setProducts } = productSlice.actions;
 
 export const getProducts = (filters) => (dispatch, getState) => {
-    const urlFilter = filters.filters.length
-        ? "/" + filters.filters.join("/")
-        : "";
+    var url = new URL("https://api.staging.eyes-aid.com/api/product-filter");
 
-    fetch(`https://api.staging.eyes-aid.com/api/product-filter` + urlFilter)
+    for (const name in filters) {
+        url.searchParams.append(name, filters[name]);
+    }
+
+    if (filters.taxonomies.length) {
+        url.pathname += "/" + filters.taxonomies.join("/");
+    }
+
+    fetch(url)
         .then((response) => response.json())
         .then((data) => dispatch(setProducts(data.data)));
 };

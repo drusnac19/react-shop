@@ -11,7 +11,7 @@ const NavigationBottom = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(getCategories()), []);
+    useEffect(() => dispatch(getCategories()), [dispatch]);
 
     return (
         <Navbar variant='light' className='main-navbar d-none d-md-block'>

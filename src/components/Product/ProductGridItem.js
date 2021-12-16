@@ -21,9 +21,9 @@ const ProductGridItem = (props) => {
         <Card className='product' key={id}>
             <Card.Img variant='top' src={thumbnail} />
             <Card.Body>
-                <Card.Title className='product-title'>
+                <div className='product-title'>
                     <Link to={`/product/${slug}`}>{name}</Link>
-                </Card.Title>
+                </div>
                 <div className='mb-3'>
                     <span className='product-stock'>({stock} in stoc)</span>
                 </div>
@@ -46,7 +46,6 @@ const ProductGridItem = (props) => {
                     {discount && (
                         <span className='product-price-original'>{price}</span>
                     )}
-
                     <span className='product-price'>
                         {price_discounted} LEI
                     </span>
@@ -56,11 +55,9 @@ const ProductGridItem = (props) => {
                         -{discount}%
                     </span>
                 )}
-                {Math.random(1, 5) && (
-                    <span className='product-ribbon-most-sold d-none'>
-                        cel mai vandut
-                    </span>
-                )}
+                <span className='product-ribbon-most-sold d-none'>
+                    cel mai vandut
+                </span>
             </Card.Body>
         </Card>
     );

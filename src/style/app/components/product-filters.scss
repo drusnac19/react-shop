@@ -1,5 +1,25 @@
 .filter-nav {
     margin-bottom: 1rem;
+
+    .dropdown {
+        .dropdown-menu {
+            background: #ffffff;
+            box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14),
+                0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            border: none;
+        }
+    }
+}
+
+.filter-sort {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px $gray-300;
+}
+
+.filter-active {
+    margin-bottom: 1rem;
 }
 
 .filters {

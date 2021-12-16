@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import fakerStatic from "faker";
 import { selectCurrentCategory } from "../../store/product-category/slice";

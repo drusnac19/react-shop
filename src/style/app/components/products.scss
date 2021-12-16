@@ -1,5 +1,5 @@
 .product-container {
-    background: #e5e5e5;
+    background: #E5E5E5;
 }
 
 .product-grid {
@@ -49,6 +49,10 @@
         display: inline-block;
         z-index: 2;
         border-radius: 3px 0 0 3px;
+
+        @include media-breakpoint-down(sm) {
+            left: 1rem;
+         }
 
         &::after {
             content: "";

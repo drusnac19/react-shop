@@ -1,4 +1,4 @@
-import { Container, Navbar, Offcanvas } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import CanvasNavigation from "./CanvasNavigation";
 
 import NavbarBrand from "./NavbarBrand";

@@ -3,6 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     taxonomies: [],
     filters: [],
+    order: {
+        by: "id",
+        type: "asc",
+    },
 };
 
 export const getTaxonomies = createAsyncThunk(
@@ -31,6 +35,14 @@ const productFilterSlice = createSlice({
                 filters.push(value);
             }
         },
+        setOrderBy: (state, action) => {
+            const [by, type] = action.payload.split(",");
+
+            state.order.by = by ? by : state.order.by;
+            state.order.type = type ? type : state.order.type;
+
+            console.log(by, type);
+        },
     },
     extraReducers: {
         [getTaxonomies.pending]: (state) => {},
@@ -40,6 +52,7 @@ const productFilterSlice = createSlice({
     },
 });
 
-export const { setFilterHandler } = productFilterSlice.actions;
+export const { setFilterHandler, setOrderBy, setOrderType } =
+    productFilterSlice.actions;
 
 export default productFilterSlice.reducer;

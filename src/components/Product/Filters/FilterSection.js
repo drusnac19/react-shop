@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import { Collapse } from "react-collapse";
 
@@ -45,7 +45,7 @@ const FilterSection = (props) => {
                             type='checkbox'
                             label={term.term_name}
                             value={term.relationship_slug}
-                            defaultChecked={filters.includes(
+                            checked={filters.includes(
                                 term.relationship_slug
                             )}
                             onChange={onChangeHandler}
